@@ -13,3 +13,15 @@ This is a minimal static HTML repo. The only tracked file is `index.html`.
 
 - Keep changes small and commit messages in French if matching history (e.g. `"Ce que j'ai changé"`, `"Premier commit"`), but English is acceptable.
 - Working tree should be clean before and after agent sessions.
+## Direction artistique
+- Palette : fond #F4EFE6, texte #1A1A1A, accent #C4572C
+- Typographie : titres en serif, texte en sans-serif, 2 familles maximum
+- Style : éditorial, minimaliste, beaucoup d'espace vide
+
+## Règles de travail
+- Toujours mobile d'abord
+- Pas de framework lourd, HTML/CSS/JS simples
+- Commenter le code en français
+- Une étape à la fois, ne jamais modifier de fichiers non concernés
+- Ne jamais écrire de clés d'API ni de mots de passe dans les fichiers
+- À la fin de chaque étape, lister les fichiers modifiés

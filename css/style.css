@@ -1,0 +1,239 @@
+/* =========================================
+   Maison Kora — Feuille de style principale
+   Palette : #F4EFE6, #1A1A1A, #C4572C
+   Polices : Playfair Display (titres), Inter (corps)
+   Mobile-first, pas d'animation pour l'instant
+   ========================================= */
+
+/* Import des polices Google Fonts (gratuites) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+
+/* Variables de design */
+:root {
+  --couleur-fond: #F4EFE6;
+  --couleur-texte: #1A1A1A;
+  --couleur-accent: #C4572C;
+
+  --police-titre: 'Playfair Display', serif;
+  --police-corps: 'Inter', sans-serif;
+}
+
+/* Reset minimal */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--couleur-fond);
+  color: var(--couleur-texte);
+  font-family: var(--police-corps);
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typographie éditoriale : titres en serif, corps en sans-serif */
+h1,
+h2,
+h3 {
+  font-family: var(--police-titre);
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 12vw, 7rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 600;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: clamp(1rem, 2vw, 1.5rem);
+}
+
+a {
+  color: var(--couleur-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* Bouton principal : style éditorial, angles vifs, pas d'ombre lourde */
+.bouton {
+  display: inline-block;
+  background-color: var(--couleur-accent);
+  color: var(--couleur-fond);
+  font-family: var(--police-corps);
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-weight: 500;
+  padding: clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2rem);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 0;
+}
+
+.bouton:hover {
+  opacity: 0.85;
+}
+
+/* Sections : espacement mobile-first, très aéré */
+section {
+  padding: clamp(3rem, 6vw, 5rem) clamp(1rem, 5vw, 2rem);
+}
+
+section h2 {
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+}
+
+/* HERO PLEIN ÉCRAN */
+header.hero {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: clamp(2rem, 5vw, 6rem) clamp(1rem, 5vw, 3rem);
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero__contenu {
+  max-width: 700px;
+}
+
+.hero__accroche {
+  font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+  max-width: 60ch;
+  margin-bottom: clamp(1.5rem, 4vw, 3rem);
+}
+
+/* NOTRE CUISINE : texte à gauche, image à droite sur desktop */
+.cuisine {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: flex-start;
+}
+
+.cuisine__contenu {
+  max-width: 550px;
+}
+
+.cuisine__image {
+  width: 100%;
+}
+
+.cuisine__photo {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .cuisine {
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(3rem, 6vw, 6rem);
+  }
+
+  .cuisine__contenu {
+    max-width: 500px;
+  }
+
+  .cuisine__image {
+    flex: 1;
+    max-width: 550px;
+  }
+}
+
+/* MENU : grille de 6 plats */
+.menu__grille {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.5rem, 4vw, 2.5rem);
+}
+
+.menu__carte {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: clamp(1rem, 3vw, 1.5rem);
+}
+
+.menu__carte h3 {
+  margin-bottom: 0;
+}
+
+.menu__carte p {
+  font-size: clamp(0.875rem, 1.5vw, 1rem);
+  margin-bottom: 0;
+}
+
+.menu__prix {
+  font-family: var(--police-titre);
+  color: var(--couleur-accent);
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-weight: 600;
+  margin-top: auto;
+}
+
+@media (min-width: 600px) {
+  .menu__grille {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .menu__grille {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* CONTACT */
+.contact__info p {
+  margin-bottom: 0.75rem;
+}
+
+.contact__info strong {
+  font-family: var(--police-titre);
+}
+
+/* PIED DE PAGE MINIMAL */
+.pied-de-page {
+  padding: clamp(2rem, 4vw, 3rem);
+  text-align: center;
+  font-size: clamp(0.75rem, 1.5vw, 0.875rem);
+}
+
+/* Respect des préférences de mouvement réduit */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
