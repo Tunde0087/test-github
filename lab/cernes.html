@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lab — Cernes, Maison Kora</title>
+  <meta name="description" page="Laboratoire d'animation — cernes concentriques et dunes">
+  <link rel="stylesheet" href="cernes.css">
+</head>
+<body>
+  <!-- Fond quasi noir chaud, contenu centré -->
+  <main class="scene" id="scene">
+    <!-- Petit point lumineux au centre, avec halo léger (géré par le CSS et complété par le canvas) -->
+    <div class="point" id="point"></div>
+
+    <!-- Canvas : anneaux concentriques (dessinés par JS à l'étape 2) -->
+    <canvas id="canvas-anneaux" aria-label="Anneaux concentriques animés"></canvas>
+
+    <!-- SVG : dunes ondulées (apparait au scroll, étape 3 et 4) -->
+    <svg id="svg-dunes" class="dunes" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 400" preserveAspectRatio="none" aria-hidden="true">
+      <!-- Dune lointaine : remplissage marron foncé -->
+      <path class="dune dune--lointaine"
+        d="M 0,360 Q 200,260 500,360 T 1000,360 L 1000,400 L 0,400 Z"
+        fill="#6B3A18"
+        opacity="0.9"/>
+      <!-- Dune moyenne : remplissage marron foncé, légèrement plus haute -->
+      <path class="dune dune--moyenne"
+        d="M 0,320 Q 300,180 700,320 T 1000,320 L 1000,400 L 0,400 Z"
+        fill="#6B3A18"
+        opacity="0.85"/>
+      <!-- Dune proche : trait crème fin, remplissage léger -->
+      <path class="dune dune--proche"
+        d="M 0,280 Q 400,120 900,280 T 1000,280 L 1000,400 L 0,400 Z"
+        fill="#6B3A18"
+        stroke="#FFE8CD"
+        stroke-width="2"
+        opacity="0.8"/>
+    </svg>
+
+    <!-- Mot en lettres très espacées, en bas de page (visible même sans JS) -->
+    <p class="mot" id="mot">ATELIER</p>
+  </main>
+
+  <!-- GSAP + ScrollTrigger (version précise, CDN de confiance) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <script src="cernes.js" defer></script>
+</body>
+</html>
